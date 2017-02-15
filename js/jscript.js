@@ -10,6 +10,35 @@ $(document).ready(function(){
 				client_secret:'415b4fa60463dffd98d587bee72c65967befa2c3'
 			}
 		}).done(function(user){
+			$.ajax({
+				url:'https://api.github.com/users/'+username+'/repos',
+				data:{
+				client_id:'979fbbad6f9fc3285567',
+				client_secret:'415b4fa60463dffd98d587bee72c65967befa2c3',
+				sort: 'created: asc',
+				per_page: 5
+				}	
+			}).done(function(repos){
+				$.each(repos, function(index, repo){
+					$('#repositories').append(`
+						<div class="well">
+							<div class="row">
+								<div class="col-md-7">
+									<strong>${repo.name}</strong>: ${repo.description}
+								</div>
+								<div class="col-md-3">
+									<span class="label label-default">Forks: ${repo.forks_count}</span>
+									<span class="label label-primary">Watchers: ${repo.wathcers_count}</span>
+									<span class="label label-success">Stars: ${repo.stargazers_count}</span>
+								</div>
+								<div class="col-md-2">
+								</div>
+							</div>
+						</div>
+					`);
+				});
+			});
+
 			$('#profile').html(`
 				<div class="panel panel-default">
 				  <div class="panel-heading">
@@ -39,6 +68,7 @@ $(document).ready(function(){
 				  </div>
 				</div>
 				<h3 class="page-header">Latest Repositories</h3>
+				<div id="repositories"></div>
 			`);	
 		});	
 	});
