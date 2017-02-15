@@ -18,7 +18,14 @@ $(document).ready(function(){
 				  <div class="panel-body">
 				    <div class="row">
 				    	<div class="col-md-3">
-				    		<img class="img-circle" src="${user.avatar_url}">
+				    		<img class="avatar img-circle" src="${user.avatar_url}">
+				    		<a target="_blank" class="profile btn btn-info btn-block" href="${user.html_url}">View Profile</a>
+				    	</div>
+				    	<div class="user-info col-md-9">
+				    		<span class="label label-default">Public Repos: ${user.public_repos}</span>
+							<span class="label label-primary">Public Gists: ${user.public_gists}</span>
+							<span class="label label-success">Followers: ${user.followers}</span>
+							<span class="label label-info">Following: ${user.following}</span>
 				    	</div>
 				    </div>
 				  </div>
