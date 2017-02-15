@@ -16,7 +16,7 @@ $(document).ready(function(){
 				client_id:'979fbbad6f9fc3285567',
 				client_secret:'415b4fa60463dffd98d587bee72c65967befa2c3',
 				sort: 'created: asc',
-				per_page: 5
+				per_page: 5,
 				}	
 			}).done(function(repos){
 				$.each(repos, function(index, repo){
@@ -32,6 +32,7 @@ $(document).ready(function(){
 									<span class="label label-success">Stars: ${repo.stargazers_count}</span>
 								</div>
 								<div class="col-md-2">
+									<a href="${repo.html_url}" target="_blank" class="btn btn-warning">Repository Page</a>
 								</div>
 							</div>
 						</div>
