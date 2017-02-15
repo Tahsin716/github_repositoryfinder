@@ -26,10 +26,19 @@ $(document).ready(function(){
 							<span class="label label-primary">Public Gists: ${user.public_gists}</span>
 							<span class="label label-success">Followers: ${user.followers}</span>
 							<span class="label label-info">Following: ${user.following}</span>
+
+							<ul class="info-list list-group">
+								<li class="list-group-item">Company: ${user.company}</li>
+								<li class="list-group-item">Website/blog: ${user.blog}</li>
+								<li class="list-group-item">Location: ${user.location}</li>
+								<li class="list-group-item">Member Since: ${user.created_at}</li>
+							</ul>
+
 				    	</div>
 				    </div>
 				  </div>
 				</div>
+				<h3 class="page-header">Latest Repositories</h3>
 			`);	
 		});	
 	});
